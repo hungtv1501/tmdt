@@ -148,6 +148,12 @@ Route::get('/result-fail',function(){
 	return "Fail";
 });
 
+Route::get('demo-controller','DemoController@index');
+
+Route::get('/demo-home/{name}/{age}','DemoController@test')->name('test-controlelr');
+Route::get('demo-view','TestController@index');
+Route::post('demo-login','TestController@login')->name('loginForm');
+
 
 
 

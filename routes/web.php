@@ -151,8 +151,22 @@ Route::get('/result-fail',function(){
 Route::get('demo-controller','DemoController@index');
 
 Route::get('/demo-home/{name}/{age}','DemoController@test')->name('test-controlelr');
-Route::get('demo-view','TestController@index');
+
+Route::get('demo-view','TestController@index')->name('home-view');
+
 Route::post('demo-login','TestController@login')->name('loginForm');
+Route::get('tes-request','TestController@test');
+Route::get('about-view','AboutController@index')->name('about-view');
+Route::get('contact-view','ContactController@index')->name('contact-view');
+
+// su dung middleware trong controller
+Route::get('middleware-controller/{user}/{pass}','ExampleController@index')->name('exp');
+
+Route::get('/error-login',function(){
+	return "user or pass invalid";
+})->name('error-login');
+
+Route::get('info-me','ExampleController@info')->name('info-me');
 
 
 

@@ -58,8 +58,29 @@ class TestController extends Controller
 
     public function login(Request $request){
     	// doi tuong Request : luu cac thong tin request tu phia client gui len
-    	$username = $request->input('user');
+    	//$username = $request->input('user');
+        $username = $request->user;
     	// var_dump + die
     	dd($username);
+    }
+
+    public function test(Request $request)
+    {
+        // injection : Request $request
+        
+
+        //http://localhost:8000/tes-request?q=abc&n=123
+        //$p = $request->q;
+        //$p = $request->get('q');
+        $p = $request->input('q');
+
+        //$p2 = $request->m;
+        //$p2 = $request->get('m','LPHP1808E');
+        $p2 = $request->input('m','LPHP1808E');
+        // $p2 = $_GET['m'];
+
+        dd($p, $p2);
+
+        return "this is test";
     }
 }

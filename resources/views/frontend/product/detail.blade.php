@@ -27,7 +27,7 @@
 				<h3 class="title mb-3">{{ $info['name_product'] }}</h3>
 
 			<p class="price-detail-wrap"> 
-				<span class="price h3 text-warning"> 
+				<span class="price h3 text-info"> 
 					<span class="num">{{ number_format($info['price']) }}</span><span class="currency"> VND</span>
 				</span> 
 			</p> <!-- price-detail-wrap .// -->
@@ -35,10 +35,10 @@
 			  <dt>@lang('common.description')</dt>
 			  <dd><p>{{ $info['description'] }}</p></dd>
 			</dl>
-			{{-- <dl class="param param-feature">
+			<dl class="param param-feature">
 			  <dt>@lang('common.brand')</dt>
-			  <dd>12345611</dd>
-			</dl> --}}  <!-- item-property-hor .// -->
+			  <dd>{{ $info['brand_name'] }}</dd>
+			</dl>  <!-- item-property-hor .// -->
 			<dl class="param param-feature">
 			  <dt>@lang('common.color')</dt>
 			  <div class="col-sm-7">
@@ -92,13 +92,16 @@
 				</div> <!-- row.// -->
 				<hr>
 				<br>
-				<a href="{{ route('fr.product') }}" class="btn btn-lg btn-primary text-uppercase">@lang('common.shopping')</a>
+				<button id="buyNow" class="btn btn-lg btn-primary text-uppercase">
+					<i class="fas fa-shopping-cart"></i> 
+					@lang('common.buy_now')
+				</button>
 				<button id="addCart" class="btn btn-lg btn-outline-primary text-uppercase" style="margin-left: 50px;">
 					<i class="fas fa-shopping-cart"></i> 
 					@lang('common.add_to_cart')
 				</button>
 				<br><br>
-				
+				<a href="{{ route('fr.product') }}" class="btn btn-lg btn-primary text-uppercase">@lang('common.shopping')</a>
 			</article> <!-- card-body.// -->
 		</aside> <!-- col.// -->
 	</div> <!-- row.// -->
@@ -130,6 +133,35 @@
 							result = $.trim(result);
 							if (result === 'OK') {
 								alert('Thêm vào giỏ hàng thành công');
+							}
+							else {
+								alert('Vui lòng chọn đầy đủ thông tin của sản phẩm');
+							}
+						}
+					});
+				}
+			});
+			$('#buyNow').click(function() {
+				let self = $(this);
+				let idPd = "{{ $info['id'] }}";
+				let qty = $.trim($('#qtyPd').val());
+
+				let textColor = $('input[name="inlineRadioOptionsColor"]:checked').next().text().trim();
+				let textSize = $('input[name="inlineRadioOptions"]:checked').next().text().trim();
+				// alert(textColor);
+				if ($.isNumeric(idPd)) {
+					$.ajax({
+						url: "{{ route('fr.addCart') }}",
+						type: "POST",
+						data: {id : idPd, qty : qty, color : textColor, size : textSize},
+						beforeSend: function() {
+							self.text('Loading...');
+						},
+						success: function(result) {
+							self.text('Mua ngay');
+							result = $.trim(result);
+							if (result === 'OK') {
+								window.location.href = "{{ route('fr.payment') }}";
 							}
 							else {
 								alert('Vui lòng chọn đầy đủ thông tin của sản phẩm');

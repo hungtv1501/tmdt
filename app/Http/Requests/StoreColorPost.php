@@ -36,10 +36,10 @@ class StoreColorPost extends FormRequest
     public function messages()
     {
         return [
-            'nameColor.required' => ':attribute khong dc de trong',
-            'nameColor.unique' => ':attribute da ton tai',
-            'nameColor.min' => ':attribute phai lon hon :min ki tu',
-            'description.required' => ':attribute khong dc de trong'
+            'nameColor.required' => 'Tên màu không được để trống',
+            'nameColor.unique' => 'Tên màu đã bị trùng',
+            'nameColor.min' => 'Tên màu phải lớn hơn :min ký tự',
+            'description.required' => 'Mô tả không được để trống'
           ];
     }     
 }

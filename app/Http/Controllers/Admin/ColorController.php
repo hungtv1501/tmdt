@@ -55,10 +55,10 @@ class ColorController extends Controller
             'updated_at' => null
              ];
         if($cl->addDataColor($dataInsert)){
-            $request->session()->flash('addCl','success');
+            $request->session()->flash('addCl','Thêm thành công');
             return redirect()->route('admin.color');
         } else {
-            $request->session()->flash('addCl','Fail');
+            $request->session()->flash('addCl','Thêm thất bại');
             return redirect()->route('admin.addColor');
         }
     }
@@ -78,10 +78,10 @@ class ColorController extends Controller
                 ];
         $up = $cl->updateDataColorById($dataUpdate, $id);
                 if($up){
-                    $request->session()->flash('editcl','update successful');
+                    $request->session()->flash('editcl','Cập nhật thành công');
                     return redirect()->route('admin.color');
                 } else {
-                    $request->session()->flash('editcl','Can not update');
+                    $request->session()->flash('editcl','Không thế sửa');
                     return redirect()->route('admin.editColor',['id'=>$id]);
                 }
 

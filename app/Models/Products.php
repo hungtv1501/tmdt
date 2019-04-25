@@ -60,7 +60,10 @@ class Products extends Model
 
     public function getInfoDataProductById($id)
     {   
-        $data = Products::find($id);
+        $data = Products::select('products.*','brands.brand_name')
+                    ->join('brands','brands.id','=','products.brands_id')
+                    ->where('products.id',$id)
+                    ->first();
         if ($data) {
             $data = $data->toArray();
         }

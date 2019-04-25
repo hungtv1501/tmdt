@@ -48,11 +48,11 @@ class CategoriesController extends Controller
             'parent_id' => $cat_parent,
         ];
         if ($cat->addData($dataInsert)) {
-            $request->session()->flash('mesCat','Success');
+            $request->session()->flash('mesCat','Thêm danh mục thành công');
             return redirect()->route('admin.categories');
         }
         else {
-            $request->session()->flash('mesCat','Fail');
+            $request->session()->flash('mesCat','Thêm danh mục thất bại');
             return redirect()->route('admin.addCat');
         }
     }
@@ -95,11 +95,11 @@ class CategoriesController extends Controller
         $up = $cat->updateDataById($dataUpdate, $id);
         // dd($up);
         if ($up) {
-            $request->session()->flash('mesCat','Update Successful');
+            $request->session()->flash('mesCat','Cập nhật danh mục thành công');
             return redirect()->route('admin.categories');
         }
         else {
-            $request->session()->flash('mesCat','Can not Update');
+            $request->session()->flash('mesCat','Không thể sửa danh mục');
             return redirect()->route('admin.editCat', ['id'=>$id]);
         }
     }

@@ -71,7 +71,7 @@
 
       <div class="col-lg-9" style="background-color: #F0F8FF;">
 
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" data-interval="5000">
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <img class="d-block img-fluid" src="{{ URL::to('/') }}/upload/images/slide1.jpg" alt="First slide">

@@ -38,16 +38,16 @@
 		<table class="table text-center">
 			<thead>
 				<tr>
-					<th>MaSP</th>
-					<th>Ten SP</th>
-					<th>Anh</th>
-					<th>Danh muc</th>
-					<th>Mau sac</th>
-					<th>Kich co</th>
-					<th>Thuong hieu</th>
-					<th>Gia SP</th>
-					<th>So luong</th>
-					<th colspan="2">Action</th>
+					<th>Mã SP</th>
+					<th>Tên SP</th>
+					<th>Ảnh</th>
+					<th>Danh mục</th>
+					<th>Màu sắc</th>
+					<th>Kích cỡ</th>
+					<th>Thương hiệu</th>
+					<th>Đơn giá</th>
+					<th>Số lượng</th>
+					<th colspan="2">Chức năng</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -119,12 +119,12 @@
 							self.text("Xóa");
 							result = $.trim(result);
 							if (result === "OK") {
-								alert("Successful");
+								alert("Xóa sản phẩm thành công");
 								// window.location.reload(true);
 								$("#row_"+idPd).hide();
 							}
 							else {
-								alert("Delete Fail");
+								alert("Xóa không thành công");
 							}
 							return false;
 						},

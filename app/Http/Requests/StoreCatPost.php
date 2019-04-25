@@ -35,10 +35,10 @@ class StoreCatPost extends FormRequest
     public function messages()
     {
         return [
-            'nameCat.required' => ':attribute khong duoc trong',
-            'nameCat.unique' => ':attribute da ton tai',
-            'cat_parent.required' => ':attribute khong duoc trong',
-            'namCat.min' => ':attribute phai lon hon :min ky tu',
+            'nameCat.required' => 'Tên danh mục không được để trống',
+            'nameCat.unique' => 'Tên danh mục đã tồn tại',
+            'cat_parent.required' => 'Danh mục cha không được để trống',
+            'namCat.min' => 'Tên danh mục phải lớn hơn :min ký tự',
         ];
     }
 }

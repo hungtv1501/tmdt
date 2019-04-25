@@ -83,10 +83,10 @@ class SizeController extends Controller
    		];
    		 $up= $size-> updateDataSizeById($dataUpdate,$id);
    			if($up){
-   				 $request->session()->flash('editSz','update successful');
+   				 $request->session()->flash('editSz','Cập nhật kích cỡ thành công');
                     return redirect()->route('admin.size');
                 } else {
-                    $request->session()->flash('editSz','Can not update');
+                    $request->session()->flash('editSz','Không thể cập nhật kích cỡ');
                     return redirect()->route('admin.editSize',['id'=>$id]);
    			}
     }

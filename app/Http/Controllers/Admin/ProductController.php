@@ -138,16 +138,16 @@ class ProductController extends Controller
                 'updated_at' => null,
             ];
             if ($product->addData($dataInsert)) {
-                $request->session()->flash('addProduct','Success');
+                $request->session()->flash('addProduct','Thêm sản phẩm thành công');
                 return redirect()->route('admin.products');
             }
             else {
-                $request->session()->flash('addProduct','Fail');
+                $request->session()->flash('addProduct','Thêm sản phẩm thất bại');
                 return redirect()->route('admin.addProduct');
             }
         }
         else {
-            $request->session()->flash('addProduct','Can not upload image');
+            $request->session()->flash('addProduct','Không thể tải ảnh sản phẩm');
             return redirect()->route('admin.addProduct');
         }
     }
@@ -253,16 +253,16 @@ class ProductController extends Controller
                 ];
                 $up = $product->updateDataById($dataUpdate, $id);
                 if ($up) {
-                    $request->session()->flash('editPd','Update Successful');
+                    $request->session()->flash('editPd','Cập nhật sản phẩm thành công');
                     return redirect()->route('admin.products');
                 }
                 else {
-                    $request->session()->flash('editPd','Can not Update');
+                    $request->session()->flash('editPd','Cập nhật sản phẩm thất bại');
                     return redirect()->route('admin.editProduct', ['id'=>$id]);
                 }
             }
             else {
-                $request->session()->flash('editPd','Can not upload image');
+                $request->session()->flash('editPd','Không thể tải ảnh lên');
                 return redirect()->route('admin.editProduct', ['id'=>$id]);
             }   
         }

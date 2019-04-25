@@ -33,7 +33,7 @@ class StoreProductPost extends FormRequest
             'categories' => 'required',
             'color' => 'required',
             'size' => 'required',
-            'brand' => 'required|numeric',
+            'brand' => 'required',
             'price' => 'required|numeric',
             'qty' => 'required|numeric',
             'image' => $img,
@@ -45,20 +45,19 @@ class StoreProductPost extends FormRequest
     public function messages()
     {
         return [
-            'nameProduct.required' => ':attribute khong duoc trong',
-            'nameProduct.unique' => ':attribute da ton tai',
-            'nameProduct.min' => ':attribute phai lon hon :min ky tu',
-            'categories.required' => ':attribute khong duoc trong',
-            'color.required' => ':attribute khong duoc trong',
-            'size.required' => ':attribute khong duoc trong',
-            'brand.required' => ':attribute khong duoc trong',
-            'brand.numeric' => ':attribute phai la so',
-            'price.required' => ':attribute khong duoc trong',
-            'price.numeric' => ':attribute phai la so',
-            'qty.required' => ':attribute khong duoc trong',
-            'qty.numeric' => ':attribute phai la so',
-            'image.required' => ':attribute khong duoc trong',
-            'des.required' => ':attribute khong duoc trong',
+            'nameProduct.required' => 'Tên sản phẩm không được để trống',
+            'nameProduct.unique' => 'Tên sản phẩm đã tồn tại',
+            'nameProduct.min' => 'Tên sản phẩm phải lớn hơn :min ký tự',
+            'categories.required' => 'Danh mục không được để trống',
+            'color.required' => 'Màu sắc không được để trống',
+            'size.required' => 'Kích cỡ không được để trống',
+            'brand.required' => 'Thương hiệu không được để trống',
+            'price.required' => 'Đơn giá không được để trống',
+            'price.numeric' => 'Đơn giá phải là số',
+            'qty.required' => 'Số lượng sản phẩm không được để trống',
+            'qty.numeric' => 'Số lượng phải là số',
+            'image.required' => 'Hình ảnh sản phẩm không được để trống',
+            'des.required' => 'Mô tả sản phẩm không được để trống',
         ];
     }
 }

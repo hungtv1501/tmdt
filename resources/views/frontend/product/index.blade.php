@@ -23,7 +23,7 @@
     </div>
   @endforeach
   </div>
-  <div class="row" style="margin-left: 300px;">
+  <div class="row" style="margin-left: 350px;">
     <div class="col-md-12">
       {{ $link->appends(request()->query())->links() }}
     </div>

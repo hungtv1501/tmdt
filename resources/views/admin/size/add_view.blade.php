@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="col-md-6 offset-md-3 mt-3 mb-3">
-			<button type="submit" class="btn btn-primary btn-block"> ADD + </button>
+			<button type="submit" class="btn btn-primary btn-block"> Thêm + </button>
 		</div>
 	</div>
 </form>

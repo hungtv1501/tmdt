@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-12">
-		<h3 class="text-center">Categories</h3>
+		<h3 class="text-center">Danh mục</h3>
 	</div>
 </div>
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -38,11 +38,11 @@
 		<table class="table text-center">
 			<thead>
 				<tr>
-					<th>MaDM</th>
-					<th>Ten DM</th>
-					<th>Danh muc Cha</th>
-					<th>Trang Thai</th>
-					<th colspan="2">Action</th>
+					<th>Mã Danh Mục</th>
+					<th>Tên Danh Mục</th>
+					<th>Danh Mục Cha</th>
+					<th>Trạng Thái</th>
+					<th colspan="2">Chức năng</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -89,15 +89,15 @@
 							self.text("Xóa");
 							result = $.trim(result);
 							if (result === "OK") {
-								alert("Successful");
+								alert("Xóa danh mục thành công");
 								// window.location.reload(true);
 								$("#row_"+idCat).hide();
 							}
 							else if(result === "FAIL") {
-								alert("Delete Fail");
+								alert("Xóa không thành công");
 							}
 							else {
-								alert("Tồn tại danh mục con. Vui lòng xóa danh mục coc trước!");
+								alert("Tồn tại danh mục con. Vui lòng xóa danh mục con trước!");
 							}
 							return false;
 						},

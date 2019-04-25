@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-12">
-		<h3 class="text-center">Update Product</h3>
+		<h3 class="text-center">Cập nhật sản phẩm</h3>
 	</div>
 </div>
 @if ($errors->any())
@@ -25,11 +25,11 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<label for="nameProduct">Name Product:</label>
+				<label for="nameProduct">Tên sản phẩm:</label>
 				<input type="text" class="form-control" name="nameProduct" id="nameProduct" value="{{ $info['name_product'] }}">
 			</div>
 			<div class="form-group border-top">
-				<p>Categories:</p>
+				<p>Danh mục:</p>
 				@foreach($cat as $key => $item)
 					<label for="cat_{{ $item['id'] }}">{{ $item['name'] }}</label>
 					<input 
@@ -43,21 +43,21 @@
 				@endforeach
 			</div>
 			<div class="form-group border-top">
-				<p>Colors:</p>
+				<p>Màu sắc:</p>
 				@foreach($color as $key => $item)
 					<label for="color_{{ $item['id'] }}">{{ $item['name_color'] }}</label>
 					<input type="checkbox" name="color[]" id="color_{{ $item['id'] }}" value="{{ $item['id'] }}" multiple {{ in_array($item['id'], $infoColor) ? 'checked' : '' }}>
 				@endforeach
 			</div>
 			<div class="form-group border-top">
-				<p>Sizes:</p>
+				<p>Kích cỡ:</p>
 				@foreach($size as $key => $item)
 					<label for="size_{{ $item['id'] }}">{{ $item['letter_size'] }}</label>
 					<input type="checkbox" name="size[]" id="size_{{ $item['id'] }}" value="{{ $item['id'] }}" multiple {{ in_array($item['id'], $infoSize) ? 'checked' : '' }}>
 				@endforeach
 			</div>
 			<div class="form-group border-top">
-				<label for="brand">Brands</label>
+				<label for="brand">Thương hiệu</label>
 				<select name="brand" class="form-control">
 					@foreach($brand as $key => $item)
 						<option 
@@ -72,11 +72,11 @@
 		</div>
 		<div class="col-md-6">
 			<div class="form-group">
-				<label for="price">Price: </label>
+				<label for="price">Đơn giá: </label>
 				<input type="number" name="price" id="price" class="form-control" value="{{ $info['price'] }}">
 			</div>
 			<div class="form-group border-top">
-				<label for="qty">Qty: </label>
+				<label for="qty">Số lượng: </label>
 				<input type="number" name="qty" id="qty" class="form-control" value="{{ $info['qty'] }}">
 			</div>
 			<div class="form-group border-top">
@@ -85,20 +85,20 @@
 				@endforeach
 			</div>
 			<div class="form-group border-top">
-				<label for="image">Image: </label>
+				<label for="image">Thay đổi ảnh sản phẩm: </label>
 				<input type="file" name="image[]" id="image" class="form-control" multiple>
 			</div>
 			<div class="form-group border-top">
-				<label for="sale">Sale off: </label>
+				<label for="sale">Giảm giá: </label>
 				<input type="text" name="sale" id="sale" class="form-control" value="{{ $info['sale_off'] }}">
 			</div>
 			<div class="form-group border-top">
-				<label for="des">Description: </label>
+				<label for="des">Mô tả: </label>
 				<textarea class="form-control" id="des" name="des" rows="5">{!! $info['description'] !!}</textarea>
 			</div>
 		</div>
 		<div class="col-md-6 offset-md-3 mt-3 mb-3">
-			<button type="submit" class="btn btn-primary btn-block"> UPDATE </button>
+			<button type="submit" class="btn btn-primary btn-block"> Cập nhật </button>
 		</div>
 	</div>
 

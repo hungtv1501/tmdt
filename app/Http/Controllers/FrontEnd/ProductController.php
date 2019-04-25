@@ -35,6 +35,7 @@ class ProductController extends BaseController
     {
     	// lay thong tin san pham
     	$infoPd = $pd->getInfoDataProductById($id);
+        // dd($infoPd);
     	// dd($info);
     	if ($infoPd) {
     		$arrColor = json_decode($infoPd['colors_id'], true);

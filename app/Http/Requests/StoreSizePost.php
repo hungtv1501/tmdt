@@ -36,7 +36,7 @@ class StoreSizePost extends FormRequest
         return [
             'letterSize.required' => 'Tên size khong dc de trong',
             'letterSize.unique' => 'Tên size da ton tai',
-            'description.required' => ':attribute khong dc de trong'
+            'description.required' => 'Mô tả kích cỡ không được để trống'
           ];
     }    
 }

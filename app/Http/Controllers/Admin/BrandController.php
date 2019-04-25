@@ -33,10 +33,10 @@ class BrandController extends Controller
    				'description'=>$description
    		];
    		 if($brand->addDataBrand($dataInsert)){
-                $request->session()->flash('addBr','success');
+                $request->session()->flash('addBr','Thêm thương hiệu thành công');
                 return redirect()->route('admin.brand');
             } else {
-                $request->session()->flash('addBr','Fail');
+                $request->session()->flash('addBr','Thêm thương hiệu thất bại');
                 return redirect()->route('admin.addBrand');
             }
    	}
@@ -67,10 +67,10 @@ class BrandController extends Controller
    			];
    			$up= $brand-> updateDataBrandById($dataUpdate,$id);
    			if($up){
-   				 $request->session()->flash('editbr','update successful');
+   				 $request->session()->flash('editbr','Cập nhật thương hiệu thành công');
                     return redirect()->route('admin.brand');
                 } else {
-                    $request->session()->flash('editcl','Can not update');
+                    $request->session()->flash('editcl','Cập nhật thương hiệu thất bại');
                     return redirect()->route('admin.editBrand',['id'=>$id]);
    			}
    	}

@@ -37,10 +37,10 @@ class StoreBrandPost extends FormRequest
      public function messages()
     {
         return [
-            'nameBrand.required' => ':attribute khong dc de trong',
-            'nameBrand.unique' => ':attribute da ton tai',
-            'address.required' => ':attribute khong dc de trong',
-            'description.required' => ':attribute khong dc de trong'
+            'nameBrand.required' => 'Tên thương hiệu không được để trống',
+            'nameBrand.unique' => 'Tên thương hiệu đã tồn tại',
+            'address.required' => 'Địa chỉ thương hiệu không được để trống',
+            'description.required' => 'Mô tả thương hiệu không được để trống'
           ];
     }    
 }

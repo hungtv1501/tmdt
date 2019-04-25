@@ -3,13 +3,13 @@
 @section('content')
 <div class="row">
 	<div class="col-md-12">
-		<h3 class="text-center">Size !</h3>
+		<h3 class="text-center">Kích cỡ !</h3>
 		<h3 class="text-center"></h3>
 	</div>
 </div>
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-1 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" id="keyword">
+              <input type="text" class="form-control bg-light border-1 small" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="basic-addon2" id="keyword">
               <div class="input-group-append">
                 <button id="btnSearch" class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -20,8 +20,8 @@
           <br><br>
 <div class="row">
 	<div class="col-md-12">
-		<a href="{{ route('admin.addSize') }}" class="btn btn-primary"> Add Brand + </a>
-		<a href="{{ route('admin.size') }}" class="btn btn-primary">View all</a>
+		<a href="{{ route('admin.addSize') }}" class="btn btn-primary"> Thêm kích cỡ + </a>
+		<a href="{{ route('admin.size') }}" class="btn btn-primary">Tất cả kích cỡ</a>
 	</div>
 </div>
 <div class="row mt-3">
@@ -29,11 +29,11 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Ma </th>
-					<th>Ten size </th>
-					<th>So size</th>
-					<th>Trang thai</th>
-					<th>Mo ta</th>
+					<th>Mã kích cỡ</th>
+					<th>Tên kích cỡ</th>
+					<th>Số kích cỡ</th>
+					<th>Trạng thái</th>
+					<th>Mô tả</th>
 					<th colspan="2" width="3%" class="text-center">Chức năng</th>
 				</tr>
 			</thead>
@@ -78,14 +78,14 @@
 							self.text('Loading ...');
 						},
 						success: function(result){
-							self.text('Delete');
+							self.text('Xóa');
 							result = $.trim(result);
 							if(result === 'OK'){
-								alert('Delete successful');
+								alert('Xóa kích cỡ thành công');
 								//window.location.reload(true);
 								$('#row_'+idSz).hide();
 							} else {
-								alert('Delete fail');
+								alert('Xóa không thành công');
 							}
 							return false; 
 						}

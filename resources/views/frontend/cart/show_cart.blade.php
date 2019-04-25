@@ -15,7 +15,7 @@
 					<th>Màu sắc</th>
 					<th>Kích cỡ</th>
 					<th>Thành tiền</th>
-					<th colspan="2" width="5%">Chuc nang</th>
+					<th colspan="2" width="5%">Chức năng</th>
 				</tr>
 			</thead>
 			<tbody>

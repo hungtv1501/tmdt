@@ -65,4 +65,11 @@ class PaymentController extends BaseController
 	{
 		Mail::to($email)->send(new TMDT);
 	}
+
+	public function transportationMethod(Categories $cat)
+	{
+		$data = [];
+		$data['cat'] = $this->getAllDataCatForUser($cat);
+		return view('frontend.payment.transportation_method',$data);
+	}
 }

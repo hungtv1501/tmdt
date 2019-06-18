@@ -27,17 +27,18 @@ class PaymentOrderPost extends FormRequest
         return [
             'username' => 'required',
             'email' => 'required|email',
-            'sdt' => 'required',
+            'sdt' => 'required|max:20',
             'address' => 'required',
         ];
     }
     public function messages() {
         return [
-            'username.required' => ':attribute không được để trống',
-            'email.required' => ':attribute không được để trống',
-            'email.email' => ':attribute không hợp lệ',
-            'sdt.required' => ':attribute không được để trống',
-            'address.required' => ':attribute không được để trống',
+            'username.required' => 'Tên không được để trống',
+            'email.required' => 'Email không được để trống',
+            'email.email' => 'Email không hợp lệ',
+            'sdt.required' => 'Số điện thoại không được để trống',
+            'sdt.max' => 'Số điện thoại không quá :max ký tự',
+            'address.required' => 'Địa chỉ không được để trống',
         ];
     }
 }

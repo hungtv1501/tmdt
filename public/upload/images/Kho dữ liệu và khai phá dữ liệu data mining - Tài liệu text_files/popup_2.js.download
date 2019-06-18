@@ -1,0 +1,78 @@
+$('document').ready(function(){
+    var element = document.querySelectorAll('[gtm-element^=GTM_Click]');
+    $.each(element, function(i,e){
+        var e = element[i];
+        $(e).on('click', function(){
+            var label = e.getAttribute('gtm-label');
+            ga('send', 'event', 'GTM event', 'click', label);
+        });
+    });
+
+    var height = $(document).height();
+    var _showPopup_stt = 0;
+    if(height > 1500){
+        $(window).scroll(function(){
+            if(!_showPopup_stt && ($(this).scrollTop() > height/2 || $(this).scrollTop() > 1500))
+            {
+                show_popup_redirect_document();
+                _showPopup_stt = 1;
+            }
+        });
+    }else{
+        setTimeout(function(){
+            show_popup_redirect_document();
+        }, 1000);
+    }
+});
+
+function Set_Cookie(name, value, expires, path, domain, secure) {
+    var today = new Date();
+    today.setTime(today.getTime());
+    var expires_date = new Date(today.getTime() + (expires));
+    document.cookie = name + "=" + escape(value) + ((expires) ? ";expires=" + expires_date.toGMTString() : "") + ((path) ? ";path=" + path : "") + ((domain) ? ";domain=" + domain : "") + ((secure) ? ";secure" : "");
+}
+
+function Get_Cookie(name) {
+    var start = document.cookie.indexOf(name + "=");
+    var len = start + name.length + 1;
+    if ((!start) && (name != document.cookie.substring(0, name.length))) {
+        return null;
+    }
+    if (start == -1) return null;
+    var end = document.cookie.indexOf(";", len);
+    if (end == -1) end = document.cookie.length;
+    return unescape(document.cookie.substring(len, end));
+}
+
+function Delete_Cookie(name, path, domain) {
+    if (Get_Cookie(name)) document.cookie = name + "=" + ((path) ? ";path=" + path : "") + ((domain) ? ";domain=" + domain : "") + ";expires=Mon, 11-November-1989 00:00:01 GMT";
+}
+
+function popunder(cooki,url) {
+    if (Get_Cookie(cooki) == null) {
+        Set_Cookie(cooki, '123doc.org', '1', '/', '', '');
+        pop = window.open(url,'_blank');
+        pop.focus();
+    }
+    return false;
+}
+function addEvent(obj, eventName, func) {
+    if (obj.attachEvent) {
+        obj.attachEvent("on" + eventName, func);
+    } else if (obj.addEventListener) {
+        obj.addEventListener(eventName, func, true);
+    } else {
+        obj["on" + eventName] = func;
+    }
+}
+function hide_popup(){
+    $('.popupText').hide();
+    $('.background-transparent').hide();
+}
+function show_popup_redirect_document(){
+    var width = $(window).width();
+    var left_popup = (width - 460)/2;
+    //$('.popupText').css('left', left_popup + 'px');
+    $('.popupText').css('top', '100px');
+    $('.background-transparent').show();
+}

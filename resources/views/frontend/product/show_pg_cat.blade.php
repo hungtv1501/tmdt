@@ -21,9 +21,9 @@
             <h5>{{ number_format($item['price']) }}</h5>
             <p class="card-text">{{ $item['description'] }}</p>
           </div>
-          <div class="card-footer">
+          {{-- <div class="card-footer">
             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
+          </div> --}}
         </div>
       </div>
     @endforeach

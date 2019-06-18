@@ -34,13 +34,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/">Trang chủ</a>
+            <a class="nav-link" href="{{ route('fr.product') }}">Trang chủ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Liên hệ</a>
+            <a class="nav-link" href="{{ route('fr.contact') }}">Liên hệ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Giới thiệu</a>
+            <a class="nav-link" href="{{ route('fr.transportationMethod') }}">Phương thức vận chuyển</a>
           </li>
           {{-- <li><a class="nav-link" href="{{ route('switchLang',['lang' => 'en']) }}">En</a></li>
           <li><a class="nav-link" href="{{ route('switchLang',['lang' => 'vi']) }}">Vi</a></li> --}}
@@ -62,7 +62,7 @@
         <h1 class="my-4">Danh Mục</h1>
         <div class="list-group mt-4">
           @foreach($cat as $key => $item)
-            <a href="{{ route('fr.showCategori',['id' => $item['id']]) }}" class="list-group-item">{{ $item['name'] }}</a>
+            <a href="{{ route('fr.showCategori',['id' => $item['id']]) }}" class="list-group-item {{ isset($id) ? ($item['id'] == $id ? 'active' : '') : '' }}">{{ $item['name'] }}</a>
           @endforeach
         </div>
 
@@ -71,7 +71,7 @@
 
       <div class="col-lg-9" style="background-color: #F0F8FF;">
 
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" data-interval="5000">
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" data-interval="1000">
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <img class="d-block img-fluid" src="{{ URL::to('/') }}/upload/images/slide1.jpg" alt="First slide">

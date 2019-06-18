@@ -264,6 +264,9 @@ Route::group([
 	Route::get('/send-mail','PaymentController@sendMail');
 
 	Route::get('/show-categori/{id}','ProductController@showCategori')->name('showCategori');
+	Route::get('/transportation-method','PaymentController@transportationMethod')->name('transportationMethod');
+
+	Route::get('/contact','ProductController@contact')->name('contact');
 });
 
 Route::get('/change-lang/{lang}',function($lang) {

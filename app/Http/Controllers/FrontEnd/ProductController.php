@@ -76,6 +76,7 @@ class ProductController extends BaseController
         $data['listPd'] = $pdArr ?? [];
         // $data['link'] = $listPd;
         // dd($arrPd);
+        $data['id'] = $id ? $id : '';
 
         $data['infoPd'] = $pdArr;
         // dd($infoPd);
@@ -97,5 +98,11 @@ class ProductController extends BaseController
         }
         // dd($data['pdCat']);
         return view('frontend.product.show_pg_cat',$data);
+    }
+
+    public function contact(Categories $cat)
+    {
+        $data['cat'] = $this->getAllDataCatForUser($cat);
+        return view('frontend.product.contact',$data);
     }
 }
